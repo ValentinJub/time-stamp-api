@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <title>Timestamp Microservice | freeCodeCamp.org</title>
+      <link rel="shortcut icon" href="https://preview.redd.it/quch0lcijir91.png?width=640&crop=smart&auto=webp&s=9ac25854cc1492966d6058cfcf55f5e0eb7c2990" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+    <h1>Timestamp Microservice</h1>
+    <hr />
+    <div class="container">
+      <h3>Example Usage:</h3>
+      <ul>
+        <li><a href="api/2015-12-25">[project url]/api/2015-12-25</a></li>
+        <li><a href="api/1451001600000">[project url]/api/1451001600000</a></li>
+      </ul>
+
+
+      <form id="date-form" method="GET">
+        <label><code>Input a UNIX time in milliseconds or a date under the format yyyy-mm-dd</code></label>
+        <br>
+        <br>
+        <input id="date" type="text" name="date" placeholder="ex: 2012-12-21 or 120119923">
+        <br>
+        <br>
+        <label><code>GET /api/date_input</code></label>
+        <br>
+        <br>
+        <input class="myButton" type="submit" value="Submit">
+      </form>
+
+      <h3>Example Output:</h3>
+      <p>
+        <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+      </p>
+    </div>
+    <div class="footer">
+      <p>
+        by <a href="https://codepen.io/ValentinW">Valentin Wissler</a>
+      </p>
+    </div>
+    <script>
+      const dateForm = document.getElementById("date-form");
+      
+      dateForm.addEventListener("submit", () => {
+        const date = document.getElementById("date").value;
+        dateForm.action = `/api/${date}`;
+
+        dateForm.submit();
+      });
+    </script>
+  </body>
+</html>
